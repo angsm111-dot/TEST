@@ -1,7 +1,7 @@
 // Publiczny odczyt przez proxy Netlify; bez dostępu administracyjnego.
 const sections = [...document.querySelectorAll('main section')];
 const status = document.querySelector('.demo');
-const money = value => typeof value === 'number' && Number.isFinite(value) ? value.toLocaleString('pl-PL', {maximumFractionDigits: 2}) + ' zł' : '—';
+const money = value => typeof value === 'number' && Number.isFinite(value) ? Math.round(value).toLocaleString('pl-PL', {maximumFractionDigits: 0, useGrouping: false}) + ' zł' : '—';
 let deadline = Date.now(), lastSuccess = null;
 function renderRows(index, entries, delivery = false) {
   const body = sections[index].querySelector('tbody');
