@@ -43,7 +43,7 @@ async function refresh() {
     const unassigned = gold.filter(p => !p.category && !Number.isFinite(p.familyIndex)).length;
     if (unassigned) status.textContent += ' • ' + unassigned + ' monet wymaga przypisania kategorii';
   } catch (error) {
-    status.textContent = lastSuccess ? 'BŁĄD AKTUALIZACJI • OSTATNI ODCZYT: ' + new Date(lastSuccess).toLocaleTimeString('pl-PL') : 'BRAK POŁĄCZENIA Z PANELEM • WIDOCZNE CENY SĄ PRZYKŁADOWE';
+    status.textContent = lastSuccess ? 'BŁĄD AKTUALIZACJI • OSTATNI ODCZYT: ' + new Date(lastSuccess).toLocaleTimeString('pl-PL') : 'BRAK POŁĄCZENIA Z PANELEM • CENY NIEDOSTĘPNE';
   } finally { deadline = Date.now() + 60000; }
 }
 refresh();
